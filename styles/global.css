@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100vh;
+  background: #284968;
+}
+
+.MuiFormLabel-root {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1rem;
+}

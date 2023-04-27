@@ -1,0 +1,12 @@
+deploy:
+  steps:
+    - checkout
+    - run:
+        name: Install dependencies
+        command: npm ci
+    - run:
+        name: Build the app
+        command: NODE_VERSION=16.0.0 npm run build
+    - run:
+        name: Start the app
+        command: NODE_VERSION=16.0.0 npm run start
