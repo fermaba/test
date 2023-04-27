@@ -9,6 +9,9 @@
     "start": "next start",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
