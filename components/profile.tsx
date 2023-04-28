@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react';
-import { Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -16,6 +16,11 @@ const Profile = observer(() => {
     }
   }, []);
 
+  const handleLogout = async () => {
+    localStorage.removeItem('token');
+    window.location.reload();
+  };
+
   return (
     <>
       <Typography sx={{ fontSize: '36px', lineHeight: '42px', color: '#FFF9F9;' }}>
@@ -26,6 +31,7 @@ const Profile = observer(() => {
       >
         Boards: {user.activeUser?.idBoards.length}
       </Typography>
+      <Button onClick={handleLogout} sx={{marginTop: '30px'}} variant='contained'>Logout</Button>
     </>
   );
 });
