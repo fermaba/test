@@ -1,15 +1,16 @@
 import { observer } from 'mobx-react';
-import { Typography, Card, CardContent } from '@mui/material';
-import { useEffect } from 'react';
+import { Typography } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 import useStore from '../hooks/useStore';
 
 const Profile = observer(() => {
-  const { user } = useStore();
+  const { user, boards } = useStore();
+  const router = useRouter();
 
   useEffect(() => {
     const { activeUser } = user;
-
     if (!activeUser) {
       user.getUser();
     }
@@ -25,11 +26,6 @@ const Profile = observer(() => {
       >
         Boards: {user.activeUser?.idBoards.length}
       </Typography>
-      <Card sx={{ height: 190, marginTop: '35px' }}>
-        <CardContent sx={{ fontSize: '20px', lineHeight: '23px', color: '#707070' }}>
-          {user.activeUser?.bio}
-        </CardContent>
-      </Card>
     </>
   );
 });
